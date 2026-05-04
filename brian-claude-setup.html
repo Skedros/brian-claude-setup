@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Setup Questionnaire | Brian Lamar</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 48px 56px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 24px; }
+  }
+  header {
+    border-bottom: 3px solid #1F3864;
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    color: #1F3864;
+    font-size: 28px;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+  }
+  .subhead {
+    color: #595959;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0;
+  }
+  .intro {
+    background: #f0f3f8;
+    border-left: 4px solid #1F3864;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 15px;
+    color: #333;
+  }
+  .intro p { margin: 0 0 10px 0; }
+  .intro p:last-child { margin-bottom: 0; }
+  h2 {
+    color: #1F3864;
+    font-size: 19px;
+    margin: 40px 0 8px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d9dde4;
+    font-weight: 700;
+  }
+  .question {
+    margin-bottom: 22px;
+  }
+  label.q {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #222;
+    font-size: 15px;
+  }
+  label.q .num {
+    color: #1F3864;
+    margin-right: 4px;
+  }
+  .hint {
+    display: block;
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cfd4db;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #222;
+    background: #fff;
+    transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    border-color: #1F3864;
+    box-shadow: 0 0 0 3px rgba(31, 56, 100, 0.12);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  textarea.tall { min-height: 120px; }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .options label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .options label:hover { background: #f5f6f8; }
+  .options input[type="checkbox"], .options input[type="radio"] {
+    margin-top: 3px;
+    cursor: pointer;
+    accent-color: #1F3864;
+  }
+  button[type="submit"] {
+    background: #1F3864;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 32px;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+  button[type="submit"]:hover { background: #142847; }
+  .required { color: #c0392b; }
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #d9dde4;
+    color: #6b7280;
+    font-size: 13px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Claude Setup Questionnaire</h1>
+    <p class="subhead">Quick intake so we can configure your Claude account, preferences, and projects</p>
+  </header>
+
+  <div class="intro">
+    <p>This is a short questionnaire to help set up your Claude account so it actually saves you time from day one. Fill in whatever you can, skip what you cannot, and do not overthink it. The more concrete and specific your answers, the better the setup. Plan on 15 to 20 minutes.</p>
+    <p>Claude is an AI assistant similar to ChatGPT. The setup we are building will give it context about you, your role at ACF, and how you work, so you can use it for prospect research, outreach drafts, deal prep, call follow-ups, and more without having to re-explain yourself every time.</p>
+  </div>
+
+  <!--
+    Replace YOUR_EMAIL_HERE with your actual email address.
+    First time someone submits, FormSubmit will send YOU an email with a link to click to activate the form. Click it once and the form is live.
+  -->
+  <form action="https://formsubmit.co/athan.skedros@gmail.com" method="POST">
+
+    <!-- Formsubmit configuration -->
+    <input type="hidden" name="_subject" value="Brian Claude Setup Responses">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <!-- Honeypot anti-spam -->
+    <input type="text" name="_honey" style="display:none">
+
+    <h2>Section 1. The basics</h2>
+
+    <div class="question">
+      <label class="q" for="q1"><span class="num">1.</span> Full name <span class="required">*</span></label>
+      <input type="text" id="q1" name="01_full_name" required>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q2"><span class="num">2.</span> Preferred name (what you want Claude to call you)</label>
+      <input type="text" id="q2" name="02_preferred_name">
+    </div>
+
+    <div class="question">
+      <label class="q" for="q3"><span class="num">3.</span> Email you will use for the Claude account <span class="required">*</span></label>
+      <input type="email" id="q3" name="03_email" required>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">4.</span> Have you used AI tools before (ChatGPT, Gemini, Copilot, etc.)? Which, and how often?</label>
+      <span class="hint">Honest answer here helps calibrate the setup.</span>
+      <textarea name="04_ai_experience"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">5.</span> Comfort level with AI tools today</label>
+      <div class="options">
+        <label><input type="radio" name="05_comfort_level" value="Brand new"> Brand new, never really used one</label>
+        <label><input type="radio" name="05_comfort_level" value="Basic familiarity"> Tried it a few times, basic familiarity</label>
+        <label><input type="radio" name="05_comfort_level" value="Occasional use"> Use it occasionally for specific tasks</label>
+        <label><input type="radio" name="05_comfort_level" value="Regular use"> Use it regularly, comfortable prompting</label>
+      </div>
+    </div>
+
+    <h2>Section 2. Your role at ACF</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">6.</span> In your own words, what does a typical week look like for you as a BDO? Walk through the kinds of tasks you spend the most time on.</label>
+      <span class="hint">Don't worry about polish. Bullet points are fine. Goal is to capture how you actually spend your time.</span>
+      <textarea name="06_typical_week" class="tall"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">7.</span> What are the three to five tasks you do most often that you wish were faster or less manual?</label>
+      <textarea name="07_slow_tasks"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">8.</span> What are you currently best at, and what is the part of the job you are still building skill in?</label>
+      <span class="hint">This shapes whether Claude leans toward speed (helping you do more of what you are good at) or coaching (helping you level up the harder parts).</span>
+      <textarea name="08_strengths_growth"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q9"><span class="num">9.</span> Roughly how long have you been in your current role and in finance / sales overall?</label>
+      <input type="text" id="q9" name="09_tenure">
+    </div>
+
+    <h2>Section 3. Who you sell to</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">10.</span> Which industries do you focus on? List as many as apply.</label>
+      <span class="hint">Examples: aviation, hospitality, mining, manufacturing, healthcare, transportation, etc.</span>
+      <textarea name="10_industries"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q11"><span class="num">11.</span> What size of company is your typical target? (Revenue, employee count, or both if you have it.)</label>
+      <input type="text" id="q11" name="11_company_size">
+    </div>
+
+    <div class="question">
+      <label class="q" for="q12"><span class="num">12.</span> Who is the buyer or decision maker you typically reach out to?</label>
+      <span class="hint">CFO, owner, controller, treasurer, CEO, ops lead, someone else?</span>
+      <input type="text" id="q12" name="12_buyer">
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">13.</span> What does a typical ACF deal look like? Equipment type, deal size range, structure, term.</label>
+      <textarea name="13_typical_deal"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q14"><span class="num">14.</span> Geographic focus. Any regions you concentrate on, or is it nationwide?</label>
+      <input type="text" id="q14" name="14_geography">
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">15.</span> What separates ACF from a bank or other lenders, in the way you would explain it to a prospect on a first call?</label>
+      <span class="hint">Try to capture the actual words you use, not the marketing version. If you have a stock pitch, paste it.</span>
+      <textarea name="15_differentiation" class="tall"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">16.</span> What are the most common objections you hear, and how do you usually handle them?</label>
+      <textarea name="16_objections" class="tall"></textarea>
+    </div>
+
+    <h2>Section 4. Your voice and style</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">17.</span> How would you describe your professional writing style? Formal, casual, somewhere in between? Any quirks?</label>
+      <textarea name="17_writing_style"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">18.</span> Anything you specifically dislike in business writing that you do not want Claude to do?</label>
+      <span class="hint">Examples: corporate jargon, exclamation points, the word 'leverage,' overly long sentences, em dashes, etc.</span>
+      <textarea name="18_dislikes"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">19.</span> Paste a recent email or LinkedIn message you wrote to a prospect that you thought was good. Or a short voicemail script.</label>
+      <span class="hint">This is gold. Even one sample gives Claude enough to mimic your voice.</span>
+      <textarea name="19_sample_writing" class="tall"></textarea>
+    </div>
+
+    <h2>Section 5. Tools and workflow</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">20.</span> Which of these do you use regularly? Check all that apply.</label>
+      <div class="options">
+        <label><input type="checkbox" name="20_tools" value="Salesforce"> Salesforce</label>
+        <label><input type="checkbox" name="20_tools" value="LinkedIn Sales Navigator"> LinkedIn Sales Navigator</label>
+        <label><input type="checkbox" name="20_tools" value="Apollo"> Apollo</label>
+        <label><input type="checkbox" name="20_tools" value="Outlook"> Outlook</label>
+        <label><input type="checkbox" name="20_tools" value="Gmail"> Gmail</label>
+        <label><input type="checkbox" name="20_tools" value="Excel"> Excel</label>
+        <label><input type="checkbox" name="20_tools" value="Google Sheets"> Google Sheets</label>
+        <label><input type="checkbox" name="20_tools" value="Microsoft Teams"> Microsoft Teams</label>
+        <label><input type="checkbox" name="20_tools" value="Slack"> Slack</label>
+        <label><input type="checkbox" name="20_tools" value="ZoomInfo"> ZoomInfo</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q21"><span class="num">21.</span> Other tools (especially anything not listed above)</label>
+      <input type="text" id="q21" name="21_other_tools">
+    </div>
+
+    <div class="question">
+      <label class="q" for="q22"><span class="num">22.</span> Where do you keep your prospect notes today?</label>
+      <span class="hint">Salesforce only, a notebook, Notes app, OneNote, somewhere else?</span>
+      <input type="text" id="q22" name="22_notes_location">
+    </div>
+
+    <h2>Section 6. What you want Claude to help with</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">23.</span> If Claude could nail one thing for you in the first month, what would make the biggest difference?</label>
+      <span class="hint">Be greedy here. Cold email drafts? Account research summaries? Discovery call prep? Post-call recap into Salesforce? Industry briefs?</span>
+      <textarea name="23_first_month_win" class="tall"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">24.</span> Are there any tasks you would NOT want to use Claude for? Anything that should stay fully manual?</label>
+      <textarea name="24_off_limits"></textarea>
+    </div>
+
+    <div class="question">
+      <label class="q"><span class="num">25.</span> Any concerns about using AI in your workflow? Privacy, accuracy, anything else.</label>
+      <span class="hint">No wrong answers. Helpful for setting expectations and guardrails.</span>
+      <textarea name="25_concerns"></textarea>
+    </div>
+
+    <h2>Section 7. Materials you can share</h2>
+
+    <p style="font-size: 14px; color: #595959; margin-bottom: 16px;">If you have any of the following you can share, check them. We can upload them into a Claude project so it has the right context every time you work in that project. You don't have to share them right now, just note what you have access to.</p>
+
+    <div class="question">
+      <label class="q"><span class="num">26.</span> Available materials (check what you have or can get)</label>
+      <div class="options">
+        <label><input type="checkbox" name="26_materials" value="ACF industry one-pagers"> ACF industry one-pagers (the rewritten ones)</label>
+        <label><input type="checkbox" name="26_materials" value="ACF pitch deck"> ACF pitch deck or capabilities deck</label>
+        <label><input type="checkbox" name="26_materials" value="Approved messaging guidelines"> Approved messaging guidelines (Troy / Corbin)</label>
+        <label><input type="checkbox" name="26_materials" value="Cold email templates"> Cold email templates currently in use</label>
+        <label><input type="checkbox" name="26_materials" value="Call scripts"> Sample call scripts or talk tracks</label>
+        <label><input type="checkbox" name="26_materials" value="Discovery questions"> Discovery question list</label>
+        <label><input type="checkbox" name="26_materials" value="Closed deal summaries"> Past closed-deal summaries (anonymized okay)</label>
+        <label><input type="checkbox" name="26_materials" value="Battlecards"> Competitor comparison or battlecards</label>
+        <label><input type="checkbox" name="26_materials" value="ICP definition"> ICP definition document</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <label class="q" for="q27"><span class="num">27.</span> Anything else you want included that is not on the list above?</label>
+      <input type="text" id="q27" name="27_other_materials">
+    </div>
+
+    <h2>Section 8. Anything else</h2>
+
+    <div class="question">
+      <label class="q"><span class="num">28.</span> Anything else about you, your role, or your goals that you think would help Claude understand you better.</label>
+      <span class="hint">Catch-all. Hobbies, learning style, side projects, certifications you are working on, career goals. Whatever you want it to know.</span>
+      <textarea name="28_anything_else" class="tall"></textarea>
+    </div>
+
+    <button type="submit">Submit responses</button>
+  </form>
+
+  <footer>
+    Submitted responses go directly to Athan, who will use them to set up your Claude account.
+  </footer>
+</div>
+
+</body>
+</html>
